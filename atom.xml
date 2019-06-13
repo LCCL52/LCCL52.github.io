@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>D:/Gridea bolg/output</id>
+    <title>大哥的博客</title>
+    <updated>2019-06-13T11:56:58.224Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="D:/Gridea bolg/output"/>
+    <link rel="self" href="D:/Gridea bolg/output/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>D:/Gridea bolg/output/images/avatar.png</logo>
+    <icon>D:/Gridea bolg/output/favicon.ico</icon>
+    <rights>All rights reserved 2019, 大哥的博客</rights>
+</feed>
