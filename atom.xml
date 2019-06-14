@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://lccl52.github.io/</id>
+    <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T07:45:43.292Z</updated>
+    <updated>2019-06-14T09:06:42.936Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://lccl52.github.io/"/>
-    <link rel="self" href="https://lccl52.github.io//atom.xml"/>
+    <link rel="alternate" href="https://sixi.fun"/>
+    <link rel="self" href="https://sixi.fun/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://lccl52.github.io//images/avatar.png</logo>
-    <icon>https://lccl52.github.io//favicon.ico</icon>
+    <logo>https://sixi.fun/images/avatar.png</logo>
+    <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
     <entry>
         <title type="html"><![CDATA[用Metasploit反弹shell渗透目标手机或Windows设备]]></title>
-        <id>https://lccl52.github.io//post/yong-metasploit-fan-dan-shell-shen-tou-mu-biao-shou-ji-huo-windows-she-bei</id>
-        <link href="https://lccl52.github.io//post/yong-metasploit-fan-dan-shell-shen-tou-mu-biao-shou-ji-huo-windows-she-bei">
+        <id>https://sixi.fun/post/yong-metasploit-fan-dan-shell-shen-tou-mu-biao-shou-ji-huo-windows-she-bei</id>
+        <link href="https://sixi.fun/post/yong-metasploit-fan-dan-shell-shen-tou-mu-biao-shou-ji-huo-windows-she-bei">
         </link>
         <updated>2019-06-14T01:55:21.000Z</updated>
         <summary type="html"><![CDATA[<h4 id="利用云主机的独立ip将本地的metasploit端口转发到外网上面去">利用云主机的独立IP，将本地的Metasploit端口转发到外网上面去。</h4>
