@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T12:36:57.856Z</updated>
+    <updated>2019-06-14T14:03:08.861Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -35,7 +35,28 @@
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code4.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code5.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code6.png" alt=""></p>
-<p>（手机版排版效果不好，请用电脑浏览以下代码）</p>
+<p>（由于移动端排版问题，源码放最后以便日后复制粘贴优化代码。）</p>
+<p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
+<h4 id="非面向对象版代码">非面向对象版代码</h4>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
+<pre><code>当然，虽然此次爬取到了所想要的资源，但是以上代码也有许多地方可以优化，如可以使用多线程，多进程技术进行爬取，在实际互联网上还要增加用户代理池，ip代理池等反反爬技术，以成功爬取所需的全部资源。美中不足的是本来想将网页一并爬取下来，但是如何处理每一张图片与连接的对应关系还没有思路，一个要学会了教程里的nosql数据库才能处理，所以这个问题先放一边。总共爬取了10个G的全部教学视频，收获还是不错的。
+</code></pre>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2019-06-14_160712.png" alt=""></p>
+<hr>
+<h4 id="总结">总结：</h4>
+<pre><code>  经历了这次独立的开发一个项目（ps:苍蝇再小也是肉）,对 面向对象和非面向对象有了一个非常深刻的认知，刷新了我对编程的理解，因为以前基本上都是照着代码敲，没有这么深刻的思考。也算是一个从零到一的突破吧！会的东西还很少，继续按照教程来选修自己感兴趣的模块。
+</code></pre>
+<hr>
+<p>吐槽一句，撸代码真的会让人秃头！！那些天思考实现方法，改bug，调程序，搞得我头皮发麻，整个人都是懵的。</p>
+<pre><code>继续加油学习吧，这个年纪，迷茫的时候就只管学习就好。
+</code></pre>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/5.jpeg" alt=""></p>
+<hr>
+<h3 id="附源码">附源码</h3>
+<p>（面向对象版）</p>
 <pre><code class="language-python">import re
 import requests
 import random
@@ -164,12 +185,8 @@ if __name__ == '__main__':
     spider.run()
 
 </code></pre>
-<p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
-<h4 id="非面向对象版代码">非面向对象版代码</h4>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
+<hr>
+<p>非面向对象版</p>
 <pre><code class="language-python">import requests
 import random
 from lxml import etree
@@ -242,20 +259,6 @@ print(little_title + &quot;.html下载成功&quot;)
             except Exception as e:
                 print(e)
 </code></pre>
-<pre><code>当然，虽然此次爬取到了所想要的资源，但是以上代码也有许多地方可以优化，如可以使用多线程，多进程技术进行爬取，在实际互联网上还要增加用户代理池，ip代理池等反反爬技术，以成功爬取所需的全部资源。美中不足的是本来想将网页一并爬取下来，但是如何处理每一张图片与连接的对应关系还没有思路，一个要学会了教程里的nosql数据库才能处理，所以这个问题先放一边。总共爬取了10个G的全部教学视频，收获还是不错的。
-</code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2019-06-14_160712.png" alt=""></p>
-<hr>
-<h4 id="总结">总结：</h4>
-<pre><code>  经历了这次独立的开发一个项目（ps:苍蝇再小也是肉）,对 面向对象和非面向对象有了一个非常深刻的认知，刷新了我对编程的理解，因为以前基本上都是照着代码敲，没有这么深刻的思考。也算是一个从零到一的突破吧！会的东西还很少，继续按照教程来选修自己感兴趣的模块。
-</code></pre>
-<hr>
-<pre><code>		吐槽一句，撸代码真的会让人秃头！！那些天思考实现方法，改bug，调程序，搞得我头皮发麻，整个人都是懵的。
-		
-		
-继续加油学习吧，这个年纪，迷茫的时候就只管学习就好，其他的交给命运。
-</code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/5.jpeg" alt=""></p>
 ]]></content>
     </entry>
     <entry>
