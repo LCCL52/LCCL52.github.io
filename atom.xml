@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T12:20:18.481Z</updated>
+    <updated>2019-06-14T12:30:31.695Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -45,7 +45,7 @@ class Spider():
     def __init__(self):
         self.headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
         self.post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-        self.post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;l18482929029c&quot;}]
+        self.post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
         self.Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
 
     def load(self):  # 登录获取第一页内容
@@ -166,6 +166,10 @@ if __name__ == '__main__':
 </code></pre>
 <p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
 <h4 id="非面向对象版代码">非面向对象版代码</h4>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
 <pre><code class="language-python">import requests
 import random
 from lxml import etree
@@ -174,7 +178,7 @@ import re
 requests.adapters.DEFAULT_RETRIES = 5
 headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
 post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;l18482929029c&quot;}]
+post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
 Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
 post_data = random.choice(post_data)
 session = requests.session()

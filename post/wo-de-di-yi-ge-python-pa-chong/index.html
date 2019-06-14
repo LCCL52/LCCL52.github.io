@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>我的第一个python爬虫 | 一只小菜鸡</title>
-<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1560514816188">
+<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1560515429400">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
 
@@ -170,7 +170,7 @@ class Spider():
     def __init__(self):
         self.headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
         self.post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-        self.post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;l18482929029c&quot;}]
+        self.post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
         self.Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
 
     def load(self):  # 登录获取第一页内容
@@ -291,6 +291,10 @@ if __name__ == '__main__':
 </code></pre>
 <p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
 <h4 id="非面向对象版代码">非面向对象版代码</h4>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
 <pre><code class="language-python">import requests
 import random
 from lxml import etree
@@ -299,7 +303,7 @@ import re
 requests.adapters.DEFAULT_RETRIES = 5
 headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
 post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;l18482929029c&quot;}]
+post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
 Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
 post_data = random.choice(post_data)
 session = requests.session()
@@ -403,7 +407,7 @@ print(little_title + &quot;.html下载成功&quot;)
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://sixi.fun/images/avatar.png?v=1560514816188" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://sixi.fun/images/avatar.png?v=1560515429400" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://sixi.fun'></a> </span>
             </div>
             <div class="bio">
