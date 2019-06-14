@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T11:33:30.972Z</updated>
+    <updated>2019-06-14T11:36:46.050Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -28,7 +28,7 @@
 <pre><code>代码思路和实现过程，在面向对象的类里写的很清楚，就不阐述了。运用的模块也蛮简单，就requests请求模块，随机数模块random（），用于随机选择用户，登录获取用户登录信息的cookie，存在session对象中。实现用户的分布式爬取，反反爬虫。 用etree模块处理响应的数据，并用xpath提取下一步所需的信息，保存到列表中以供下一步访问。os模块用于创建课程相应文件夹和每一小节的名字并存储到相应文件夹。
 </code></pre>
 <h5 id="面向对象">面向对象</h5>
-<pre><code>import re
+<pre><code class="language-python">import re
 import requests
 import random
 from lxml import etree
@@ -158,7 +158,7 @@ if __name__ == '__main__':
 </code></pre>
 <p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
 <h4 id="非面向对象版代码">非面向对象版代码</h4>
-<pre><code>import requests
+<pre><code class="language-python">import requests
 import random
 from lxml import etree
 import os
