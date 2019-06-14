@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T12:30:31.695Z</updated>
+    <updated>2019-06-14T12:36:57.856Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -372,7 +372,7 @@ msf5 exploit(multi/handler) &gt; run
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p12.jpg" alt=""></p>
 <p>手机安装：</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p10.jpg" alt=""></p>
-<p>测试电脑远程打开双系统：
+<p>测试远程打开目标主机摄像头：
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p11.jpg" alt=""></p>
 <p>在ssh连接时要打开云主机的相应端口：如
 由于测试时没搭建博客，部分图片不全。</p>
