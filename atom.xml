@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-14T14:04:49.710Z</updated>
+    <updated>2019-06-17T08:50:18.305Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -19,7 +19,7 @@
         <content type="html"><![CDATA[<h4 id="初识python">初识python</h4>
 <pre><code>  从大二开始接触python，那时候在实验室跟舍友做一个机器学习相关的项目，之后在期末的数据结构实训中也是运用python这门语言进行代码的编写，深刻的感受到了python的乐趣。此次爬虫是在这学期网络攻击与防御的课程中，学校跟e春秋合作推出了线上自学靶场平台，里面有许多网络攻击与防御相关的视频。于是产生了写一个爬虫将视频下载下来保存的想法。一方面保存学习资源，一方面练习编程技巧。
 </code></pre>
-<h4 id="艰难历程">艰难历程</h4>
+<h4 id="历程">历程</h4>
 <pre><code>  期初有想法是完全不会的，之前学习的语法也忘了，因为python是零零星星在学，没有一次系统的学习过。于是找到了一套完整的python全栈开发视频，将里面的爬虫模块的技术看了一半，便开始编写，由于只能在机房才能连上服务器，来回机房跑了几次，另外花了几节课才调试出来。其中还有许多不足，等技术成熟了再优化代码。
 </code></pre>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2.png" alt="">
@@ -28,20 +28,20 @@
 <pre><code>代码思路和实现过程，在面向对象的类里写的很清楚，就不阐述了。运用的模块也蛮简单，就requests请求模块，随机数模块random（），用于随机选择用户，登录获取用户登录信息的cookie，存在session对象中。实现用户的分布式爬取，反反爬虫。 用etree模块处理响应的数据，并用xpath提取下一步所需的信息，保存到列表中以供下一步访问。os模块用于创建课程相应文件夹和每一小节的名字并存储到相应文件夹。
 </code></pre>
 <h5 id="面向对象">面向对象</h5>
-<p>（图片，便于浏览）
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code1.png" alt="">
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code1.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code2.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code3.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code4.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code5.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code6.png" alt=""></p>
-<p>（由于移动端排版问题，源码放最后以便日后复制粘贴优化代码。）</p>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code6.png" alt="">
+源码链接：https://github.com/LCCL52/code_python/blob/master/e%20chunqiu.py</p>
 <p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
 <h4 id="非面向对象版代码">非面向对象版代码</h4>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt="">
+源码链接：https://github.com/LCCL52/code_python/blob/master/test.py</p>
 <pre><code>当然，虽然此次爬取到了所想要的资源，但是以上代码也有许多地方可以优化，如可以使用多线程，多进程技术进行爬取，在实际互联网上还要增加用户代理池，ip代理池等反反爬技术，以成功爬取所需的全部资源。美中不足的是本来想将网页一并爬取下来，但是如何处理每一张图片与连接的对应关系还没有思路，一个要学会了教程里的nosql数据库才能处理，所以这个问题先放一边。总共爬取了10个G的全部教学视频，收获还是不错的。
 </code></pre>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2019-06-14_160712.png" alt=""></p>
@@ -51,214 +51,8 @@
 </code></pre>
 <hr>
 <p>吐槽一句，撸代码真的会让人秃头！！那些天思考实现方法，改bug，调程序，搞得我头皮发麻，整个人都是懵的。</p>
-<pre><code>继续加油学习吧，这个年纪，迷茫的时候就只管学习就好。
-</code></pre>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/5.jpeg" alt=""></p>
 <hr>
-<h3 id="附源码">附源码</h3>
-<p>（面向对象版）</p>
-<pre><code class="language-python">import re
-import requests
-import random
-from lxml import etree
-import os
-class Spider():
-    def __init__(self):
-        self.headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
-        self.post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-        self.post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
-        self.Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
-
-    def load(self):  # 登录获取第一页内容
-        post_data = random.choice(self.post_data)
-        session = requests.session()
-        session.post(self.post_url, data=post_data, headers=self.headers)
-        for i in range(1, 3):
-            one_url=&quot;http://192.168.4.253/index.php/Study/listunderway?per_page={}&quot;
-            response =session.get(one_url.format(i), headers=self.headers)
-        return response.content.decode()
-
-    def Big_url(self,first_data):  # 提取TaskID构造下一级url
-        html = etree.HTML(first_data.content.decode())
-        ret=html.xpath('//div[@class=&quot;taskimg&quot;]//a/@taskid')
-        Big_url=[]
-        for i in range(0, len(ret)):
-            Big_url.append(&quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;.format(ret[i]))
-        return Big_url
-
-    def Big_title(self,first_data):
-        html = etree.HTML(first_data.content.decode())
-        Bigtit_list=html.xpath('//div[@class=&quot;taskimg&quot;]//a/@title')
-        return Bigtit_list
-
-
-    def crate_big_file(self,Bigtit_list):       #创建相应文件夹
-        for Bigtit in Bigtit_list:
-            #print(Bigtit,Bighref)
-            if os.path.exists(Bigtit)==False:#判断有无此文件夹
-                os.mkdir(Bigtit)          #创建文件夹
-
-    def load_little_url(self, bigurl):#进入二级url，得到课程的详细信息
-        post_data = random.choice(self.post_data)
-        session = requests.session()
-        session.post(self.post_url, data=post_data, headers=self.headers)
-        response = session.get(bigurl, headers=self.headers)
-        return response.content.decode()
-
-    # 获取三级url地址
-    def Little_url(self,second_data):
-        html = etree.HTML(second_data.content.decode())
-        Little_url_list=html.xpath('//p[@class=&quot;itemTitle&quot; ]//a//@href')
-        return Little_url_list
-
-    def Little_title(self,second_data):
-        html = etree.HTML(second_data.content.decode())
-        Little_title_list=html.xpath('//p[@class=&quot;itemTitle&quot; ]//a/text()')
-        return Little_title_list
-
-    def load_third_url(self,little_url): #进入视频播放页面，发送请求获取数据
-        post_data = random.choice(self.post_data)
-        session = requests.session()
-        session.post(self.post_url, data=post_data, headers=self.headers)
-        response = session.get(little_url, headers=self.headers)
-        return response.content.decode()
-
-    def vedio_url(self,vedio_page_data):
-        html = etree.HTML(vedio_page_data.content.decode())
-        vedio_url=html.xpath('//vedio//source/@src')
-        return vedio_url
-
-    def save_vedio(self,vedio_url,bigtitle,little_title):
-        post_data = random.choice(self.post_data)
-        session = requests.session()
-        session.post(self.post_url, data=post_data, headers=self.headers)
-        response = session.get(vedio_url, headers=self.headers)
-        little_title = re.sub(':', &quot; &quot;, little_title)  # 替换掉标题中的冒号
-        path = bigtitle + &quot;\\&quot; + little_title + &quot;.mp4&quot;
-        if os.path.exists(path) == False:
-            with open(path,&quot;wb&quot;) as f:
-                f.write(response.content)
-                f.close()
-
-    def seve_page(self,vedio_page_data,little_title,bigtitle):
-        little_title = re.sub(':', &quot; &quot;, little_title)  # 替换掉标题中的冒号
-        path = bigtitle + &quot;\\&quot; + little_title + &quot;.html&quot;
-        with open(path,&quot;w&quot;,encoding=&quot;utf-8&quot;) as f:
-            f.write(vedio_page_data)
-            f.close()
-
-    def run(self):
-        # 登录发送请求获取响应
-        first_data = self.load()
-        # 爬取所有课程名字和url
-        Bigurl_list=self.Big_url(first_data)
-        Bigtit_list=self.Big_title(first_data)
-        # 创建相应课程文件夹
-        self.crate_big_file(Bigtit_list)
-        #进入二级url
-        for bigurl,bigtitle in zip(Bigurl_list,Bigtit_list):
-            second_data=self.load_little_url(bigurl)
-            # 获取每一小节名字和url
-            Little_url_list=self.Little_url(second_data)
-            Little_title_list=self.Little_title(second_data)
-            print(Little_title_list,Little_url_list)
-        #进入视频播放
-            for little_url,little_title in zip(Little_url_list,Little_title_list):
-                vedio_page_data=self.load_third_url(little_url)
-                vedio_url=self.vedio_url(vedio_page_data)
-                # 判断是视频还是文本教程
-                if len(vedio_url)&gt;0:
-                    try:
-                    # 若是视频，提取视频地址，下载保存
-                        self.save_vedio(vedio_url[0],bigtitle,little_title)
-                    except Exception as e:
-                        print(e)
-                else:
-                    try:
-                    # 若是网页教程，保存为HTML格式文件
-                        self.seve_page(vedio_page_data,bigtitle,little_title)
-                    except Exception as e:
-                        print(e)
-
-if __name__ == '__main__':
-    spider=Spider()
-    spider.run()
-
-</code></pre>
-<hr>
-<p>非面向对象版</p>
-<pre><code class="language-python">import requests
-import random
-from lxml import etree
-import os
-import re
-requests.adapters.DEFAULT_RETRIES = 5
-headers = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0&quot;}
-post_url = &quot;http://192.168.4.253/index.php/Login/login&quot;
-post_data = [{&quot;username&quot;: &quot;luochen&quot;, &quot;password&quot;: &quot;passwd&quot;}]
-Big_url = &quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;
-post_data = random.choice(post_data)
-session = requests.session()
-session.post(post_url, data=post_data, headers=headers)
-for i in range(1, 3):
-    one_url = &quot;http://192.168.4.253/index.php/Study/listunderway?per_page={}&quot;
-    first_data = session.get(one_url.format(i), headers=headers)
-
-    html = etree.HTML(first_data.content.decode())
-    ret = html.xpath('//div[@class=&quot;taskimg&quot;]//a/@taskid')
-    Big_url = []
-    for i in range(0, len(ret)):
-        Big_url.append(&quot;http://192.168.4.253/index.php/Study/studydetail?taskid={}&quot;.format(ret[i]))
-    print(Big_url)
-
-    Bigtit_list = html.xpath('//div[@class=&quot;taskimg&quot;]//a/@title')
-    print(Bigtit_list)
-    for Bigtit in Bigtit_list:
-        # print(Bigtit,Bighref)
-        if os.path.exists(Bigtit) == False:  # 判断有无此文件夹
-            os.mkdir(Bigtit)
-
-    for bigurl, bigtitle in zip(Big_url, Bigtit_list):
-        second_data = session.get(bigurl, headers=headers)
-        html = etree.HTML(second_data.content.decode())
-        Little_title_list = html.xpath('//p[@class=&quot;itemTitle&quot; ]//a/text()')
-        Little_url_list = html.xpath('//p[@class=&quot;itemTitle&quot; ]//a//@href')
-
-        for little_url, little_title in zip(Little_url_list, Little_title_list):
-            vedio_page_data = session.get(little_url, headers=headers)
-            html = etree.HTML(vedio_page_data.content.decode())
-            vedio_url = html.xpath('//video//source/@src')
-            if len(vedio_url) &gt; 0:
-                # ren = &quot;.*?(:)*?&quot;
-                little_title= re.sub(':', &quot; &quot;, little_title)   #替换掉标题中的冒号
-                print(bigtitle)
-                path = bigtitle + &quot;\\&quot; + little_title + &quot;.mp4&quot;
-                try:
-                    vedio_data=session.get(vedio_url[0])
-                    with open(path, 'wb') as output:
-                        while True:
-                            buffer = vedio_data.read(1024 * 256);
-                            if not buffer:
-                                break
-                            # received += len(buffer)
-                            output.write(buffer)
-                        output.close()
-                    print(little_title + &quot;.mp4下载成功&quot;)
-
-                except Exception as e:
-                    print(e)
-
-        else:
-            try:
-                html_data = vedio_page_data.content
-                fail_path = bigtitle + &quot;\\&quot; + little_title + &quot;.html&quot;
-                with open(fail_path, &quot;w&quot;,encoding=&quot;utf-8&quot;) as f:
-                    f.write(html_data)
-                    f.close()
-print(little_title + &quot;.html下载成功&quot;)
-            except Exception as e:
-                print(e)
-</code></pre>
 ]]></content>
     </entry>
     <entry>
