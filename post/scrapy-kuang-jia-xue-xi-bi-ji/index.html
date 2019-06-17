@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>我的第一个python爬虫 | 一只小菜鸡</title>
+<title>Scrapy框架学习笔记(1) | 一只小菜鸡</title>
 <link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1560763511991">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
@@ -119,12 +119,12 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/python2.jpeg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/python.jpg">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-06-14 ·</span> <span> / </span>
+          <span class="date">· 2019-06-17 ·</span> <span> / </span>
           <span class="author">
             <a href="https://sixi.fun" title="" rel="author"> Powered by <a>LCCL</a></a>
           </span>
@@ -136,48 +136,76 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>我的第一个python爬虫</h1>
+          <h1 class='entry-title'>Scrapy框架学习笔记(1)</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <h4 id="初识python">初识python</h4>
-<pre><code>  从大二开始接触python，那时候在实验室跟舍友做一个机器学习相关的项目，之后在期末的数据结构实训中也是运用python这门语言进行代码的编写，深刻的感受到了python的乐趣。此次爬虫是在这学期网络攻击与防御的课程中，学校跟e春秋合作推出了线上自学靶场平台，里面有许多网络攻击与防御相关的视频。于是产生了写一个爬虫将视频下载下来保存的想法。一方面保存学习资源，一方面练习编程技巧。
+              <h3 id="scrapy框架简介">Scrapy框架简介</h3>
+<pre><code> Scrapy是用纯Python实现一个为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。框架的力量，用户只需要定制开发几个模块就可以轻松的实现一个爬虫，用来抓取网页内容以及各种图片，非常之方便。Scrapy 使用了 Twisted(其主要对手是Tornado)异步网络框架来处理网络通讯，可以加快我们的下载速度，不用自己去实现异步框架，并且包含了各种中间件接口，可以灵活的完成各种需求
 </code></pre>
-<h4 id="历程">历程</h4>
-<pre><code>  期初有想法是完全不会的，之前学习的语法也忘了，因为python是零零星星在学，没有一次系统的学习过。于是找到了一套完整的python全栈开发视频，将里面的爬虫模块的技术看了一半，便开始编写，由于只能在机房才能连上服务器，来回机房跑了几次，另外花了几节课才调试出来。其中还有许多不足，等技术成熟了再优化代码。
-</code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/3.png" alt=""></p>
-<h4 id="代码">代码</h4>
-<pre><code>代码思路和实现过程，在面向对象的类里写的很清楚，就不阐述了。运用的模块也蛮简单，就requests请求模块，随机数模块random（），用于随机选择用户，登录获取用户登录信息的cookie，存在session对象中。实现用户的分布式爬取，反反爬虫。 用etree模块处理响应的数据，并用xpath提取下一步所需的信息，保存到列表中以供下一步访问。os模块用于创建课程相应文件夹和每一小节的名字并存储到相应文件夹。
-</code></pre>
-<h5 id="面向对象">面向对象</h5>
-<p><strong><a href="https://github.com/LCCL52/code_python/blob/master/e%20chunqiu.py">源码地址</a></strong></p>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code1.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code2.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code3.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code4.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code5.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code6.png" alt=""></p>
-<p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
-<h4 id="非面向对象版代码">非面向对象版代码</h4>
-<p><strong><a href="https://github.com/LCCL52/code_python/blob/master/test.py">源码地址</a></strong></p>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
-<pre><code>当然，虽然此次爬取到了所想要的资源，但是以上代码也有许多地方可以优化，如可以使用多线程，多进程技术进行爬取，在实际互联网上还要增加用户代理池，ip代理池等反反爬技术，以成功爬取所需的全部资源。美中不足的是本来想将网页一并爬取下来，但是如何处理每一张图片与连接的对应关系还没有思路，一个要学会了教程里的nosql数据库才能处理，所以这个问题先放一边。总共爬取了10个G的全部教学视频，收获还是不错的。
-</code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2019-06-14_160712.png" alt=""></p>
-<hr>
-<h4 id="总结">总结：</h4>
-<pre><code>  经历了这次独立的开发一个项目（ps:苍蝇再小也是肉）,对 面向对象和非面向对象有了一个非常深刻的认知，刷新了我对编程的理解，因为以前基本上都是照着代码敲，没有这么深刻的思考。也算是一个从零到一的突破吧！会的东西还很少，继续按照教程来选修自己感兴趣的模块。
-</code></pre>
-<hr>
-<p>吐槽一句，撸代码真的会让人秃头！！那些天思考实现方法，改bug，调程序，搞得我头皮发麻，整个人都是懵的。</p>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/5.jpeg" alt=""></p>
-<hr>
+<h3 id="框架实现流程图">框架实现流程图</h3>
+<p>实现流程：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/scrpy_liu.png" alt=""></p>
+<p>实现过程：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/xiangjie.png" alt=""></p>
+<h3 id="创建一个scrapy项目">创建一个scrapy项目</h3>
+<p>流程
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/0.png" alt=""></p>
+<p>安装模块
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/anzhuang.png" alt=""></p>
+<p>windows下的python也要进行命令行安装。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/1.png" alt=""></p>
+<p>1、 创建一个项目：scrapy startproject scrapy_spider
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/2.png" alt=""></p>
+<p>打开pycharm，可以看到创建成功
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/3.png" alt=""></p>
+<ul>
+<li>Item定义爬取的字段</li>
+<li>Middleware 爬虫中间介</li>
+<li>pipeline 管道，数据处理和保存</li>
+<li>settings 爬虫的设置</li>
+<li>spiders文件夹 创建的爬虫</li>
+</ul>
+<p>2、生成一个爬虫
+scrapy genspider spider1 &quot;itcast.cn&quot;</p>
+<ul>
+<li>spider1 爬虫名字</li>
+<li>itcast.cn 爬虫范围（域名）
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt="">
+查看spider文件夹下有了一个名为spider1的爬虫
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/5.png" alt=""></li>
+</ul>
+<p>spider1内容如下：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/6.png" alt=""></p>
+<ul>
+<li>start_url内容为生成的，按需修改</li>
+<li>parse函数用于处理start_url的响应</li>
+</ul>
+<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息
+打开浏览器对其进行分析
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/7.png" alt=""></p>
+<p>书写xpath进行提取：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/12.png" alt=""></p>
+<ul>
+<li>extract()函数提取文本</li>
+<li>yield item将数据传入piplines.py处理</li>
+</ul>
+<p>piplines接收数据，处理
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/13.png" alt=""></p>
+<p>同时要在settings里面开启piplines才能使用
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/14.png" alt=""></p>
+<ul>
+<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。
+eg:再定义一个管道  距离为301，则数据先经过300处理，再经过301处理。</li>
+</ul>
+<p>设置日志等级
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/9.png" alt=""></p>
+<p>运行报错，没有这个模块，安装相应模块
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/11.png" alt=""></p>
+<p>处理完问题，再次运行，得到所要爬取的数据：
+启动爬虫 scrapy crawl spider1
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/15.png" alt=""></p>
 
             </article>
           </div>
@@ -233,7 +261,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://sixi.fun/post/yong-metasploit-fan-dan-shell-shen-tou-mu-biao-shou-ji-huo-windows-she-bei">下一篇->用Metasploit反弹shell渗透目标手机或Windows设备</a>
+                <a class="next page-numbers" href="https://sixi.fun/post/wo-de-di-yi-ge-python-pa-chong">下一篇->我的第一个python爬虫</a>
               </div>
             </nav>
           
