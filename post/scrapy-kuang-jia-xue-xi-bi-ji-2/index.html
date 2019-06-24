@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Scrapy框架学习笔记(1)——Scrapy的入门使用 | 一只小菜鸡</title>
+<title>Scrapy框架学习笔记(2)——pipeline和logging模块的使用 | 一只小菜鸡</title>
 <link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1561363516750">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
@@ -124,7 +124,7 @@
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-06-17 ·</span> <span> / </span>
+          <span class="date">· 2019-06-24 ·</span> <span> / </span>
           <span class="author">
             <a href="https://sixi.fun" title="" rel="author"> Powered by <a>LCCL</a></a>
           </span>
@@ -136,76 +136,32 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>Scrapy框架学习笔记(1)——Scrapy的入门使用</h1>
+          <h1 class='entry-title'>Scrapy框架学习笔记(2)——pipeline和logging模块的使用</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <h3 id="scrapy框架简介">Scrapy框架简介</h3>
-<pre><code> Scrapy是用纯Python实现一个为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。框架的力量，用户只需要定制开发几个模块就可以轻松的实现一个爬虫，用来抓取网页内容以及各种图片，非常之方便。Scrapy 使用了 Twisted(其主要对手是Tornado)异步网络框架来处理网络通讯，可以加快我们的下载速度，不用自己去实现异步框架，并且包含了各种中间件接口，可以灵活的完成各种需求
-</code></pre>
-<h3 id="框架实现流程图">框架实现流程图</h3>
-<p>实现流程：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/scrpy_liu.png" alt=""></p>
-<p>实现过程：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/xiangjie.png" alt=""></p>
-<h3 id="创建一个scrapy项目">创建一个scrapy项目</h3>
-<p>流程
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/0.png" alt=""></p>
-<p>安装模块
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/anzhuang.png" alt=""></p>
-<p>windows下的python也要进行命令行安装。
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/1.png" alt=""></p>
-<p>1、 创建一个项目：scrapy startproject scrapy_spider
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/2.png" alt=""></p>
-<p>打开pycharm，可以看到创建成功
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/3.png" alt=""></p>
-<ul>
-<li>Item定义爬取的字段</li>
-<li>Middleware 爬虫中间介</li>
-<li>pipeline 管道，数据处理和保存</li>
-<li>settings 爬虫的设置</li>
-<li>spiders文件夹 创建的爬虫</li>
-</ul>
-<p>2、生成一个爬虫
-scrapy genspider spider1 &quot;itcast.cn&quot;</p>
-<ul>
-<li>spider1 爬虫名字</li>
-<li>itcast.cn 爬虫范围（域名）
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt="">
-查看spider文件夹下有了一个名为spider1的爬虫
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/5.png" alt=""></li>
-</ul>
-<p>spider1内容如下：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/6.png" alt=""></p>
-<ul>
-<li>start_url内容为生成的，按需修改</li>
-<li>parse函数用于处理start_url的响应</li>
-</ul>
-<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息
-打开浏览器对其进行分析
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/7.png" alt=""></p>
-<p>书写xpath进行提取：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/12.png" alt=""></p>
-<ul>
-<li>extract()函数提取文本</li>
-<li>yield item将数据传入piplines.py处理</li>
-</ul>
-<p>piplines接收数据，处理
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/13.png" alt=""></p>
-<p>同时要在settings里面开启piplines才能使用
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/14.png" alt=""></p>
-<ul>
-<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。
-eg:再定义一个管道  距离为301，则数据先经过300处理，再经过301处理。</li>
-</ul>
-<p>设置日志等级
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/9.png" alt=""></p>
-<p>运行报错，没有这个模块，安装相应模块
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/11.png" alt=""></p>
-<p>处理完问题，再次运行，得到所要爬取的数据：
-启动爬虫 scrapy crawl spider1
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/15.png" alt=""></p>
+              <h3 id="pipelines模块的使用">pipelines模块的使用</h3>
+<h4 id="同一个项目下爬取多个网站">同一个项目下爬取多个网站</h4>
+<p>首先创建多个spider
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/1.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/2.png" alt="">
+在每个spider中写不同的爬取规则得到数据
+然后在每条数据的item中添加一个键值用于pipelines判断数据来自哪个网站，以便选用不同的pipelines进行数据的处理
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/3.png" alt="">
+写多个pipeline，判断数据来自哪里，然后用不同的pipeline处理不同网站的数据
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/4.png" alt=""></p>
+<h3 id="logging模块的使用">logging模块的使用</h3>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/5.png" alt=""></p>
+<h4 id="scrapy中logging模块的使用">scrapy中logging模块的使用</h4>
+<p>在spider中import模块，然后调用模块的getLogger方法传入name  这里的name默认为py文件的名字。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/7.png" alt="">
+在方法中调用logger记录日志
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/8.png" alt="">
+在pipelines中调用方法一样
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/6.png" alt="">
+若要将log保存到本地，只需在setting中添加LOG_FILE属性
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/9.png" alt=""></p>
 
             </article>
           </div>
@@ -261,7 +217,7 @@ eg:再定义一个管道  距离为301，则数据先经过300处理，再经过
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://sixi.fun/post/wo-de-di-yi-ge-python-pa-chong">下一篇->我的第一个python爬虫</a>
+                <a class="next page-numbers" href="https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji">下一篇->Scrapy框架学习笔记(1)——Scrapy的入门使用</a>
               </div>
             </nav>
           

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-17T09:32:20.611Z</updated>
+    <updated>2019-06-24T08:05:21.377Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -11,7 +11,36 @@
     <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
     <entry>
-        <title type="html"><![CDATA[Scrapy框架学习笔记(1)]]></title>
+        <title type="html"><![CDATA[Scrapy框架学习笔记(2)——pipeline和logging模块的使用]]></title>
+        <id>https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji-2</id>
+        <link href="https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji-2">
+        </link>
+        <updated>2019-06-24T07:07:14.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="pipelines模块的使用">pipelines模块的使用</h3>
+<h4 id="同一个项目下爬取多个网站">同一个项目下爬取多个网站</h4>
+<p>首先创建多个spider
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/1.png" alt="">
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/2.png" alt="">
+在每个spider中写不同的爬取规则得到数据
+然后在每条数据的item中添加一个键值用于pipelines判断数据来自哪个网站，以便选用不同的pipelines进行数据的处理
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/3.png" alt="">
+写多个pipeline，判断数据来自哪里，然后用不同的pipeline处理不同网站的数据
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/4.png" alt=""></p>
+<h3 id="logging模块的使用">logging模块的使用</h3>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/5.png" alt=""></p>
+<h4 id="scrapy中logging模块的使用">scrapy中logging模块的使用</h4>
+<p>在spider中import模块，然后调用模块的getLogger方法传入name  这里的name默认为py文件的名字。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/7.png" alt="">
+在方法中调用logger记录日志
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/8.png" alt="">
+在pipelines中调用方法一样
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/6.png" alt="">
+若要将log保存到本地，只需在setting中添加LOG_FILE属性
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/9.png" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scrapy框架学习笔记(1)——Scrapy的入门使用]]></title>
         <id>https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji</id>
         <link href="https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji">
         </link>
