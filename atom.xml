@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-06-24T08:05:21.377Z</updated>
+    <updated>2019-07-02T08:52:48.282Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -10,6 +10,55 @@
     <logo>https://sixi.fun/images/avatar.png</logo>
     <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
+    <entry>
+        <title type="html"><![CDATA[基于爬虫的验证码轰炸思路]]></title>
+        <id>https://sixi.fun/post/ji-yu-pa-chong-de-yan-zheng-ma-hong-zha-si-lu</id>
+        <link href="https://sixi.fun/post/ji-yu-pa-chong-de-yan-zheng-ma-hong-zha-si-lu">
+        </link>
+        <updated>2019-07-02T04:56:59.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="声明">声明</h3>
+<pre><code> 因为同学受到了来历不明的短信验证码的轰炸，结合正在学习的网络爬虫的知识，想出一个基于爬虫的网站验证码对指定号码进行轰炸，本文仅用于学习和记录思路，没有恶意调用网络资源的想法！！！
+</code></pre>
+<h4 id="思路">思路</h4>
+<pre><code> 首先，从收到的短信来看，全是网站注册验证码、登录验证码等。当前，短信验证码在注册账号，登录验证时用的非常广泛，也是一种非常方便快捷的身份验证方式。所以，许多网站建设者都会将短信验证码这个功能加入到注册账号的流程中。那么问题来了，这个短信对于任意用户来说都是可以触发的。只要将所需信息填写并提交，就可以向指定号码发送短信。我们都知道，在计算机的世界里，只要是重复性的事情几乎都可以让程序来解决。于是乎，结合爬虫的知识有了这个灵感。
+</code></pre>
+<h4 id="具体实现">具体实现</h4>
+<h5 id="所需技术">所需技术</h5>
+<pre><code>+ requests模块
++ webdriver
+</code></pre>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/1.png" alt="">
+这里采用这两个模块是因为某些网站利用requests模块的post方法的时候不好寻找表单数据，所以直接动用爬虫的终极杀手——webdriver。webdriver是一个可以直接用代码调用浏览器并进行操作的模块。鼠标键盘在浏览器上实现的操作都可以利用webdriver实现。</p>
+<h5 id="具体实现流程">具体实现流程</h5>
+<p>首先是寻找目标，利用浏览器高级搜索语法，输入intitle:注册   并搜索，效果如图：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/2.png" alt="">
+在搜索结果中挑选比较容易构造数据包的网址，点击进入进行分析：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/3.png" alt="">
+抓包分析，发现其提交的表单非常简单，只有如下几个参数
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/4.png" alt="">
+通过分析我们知道，post的地址里带有一串数字，其为随机数，所以在构造post地址的时候，利用random模块生成一个随机小数即可。然后我们构造post数据表单,代码如下
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/5.png" alt="">
+将电话号码以参数的形式传入函数，在调用时传入电话号码，就可以自动填充数据并post到服务器，当服务器收到正确的post请求后，就给目标号码发送短信。
+（整个函数）
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/6.png" alt="">
+可以看到，一个网站用非常简单的几行代码就可以发送一条短信</p>
+<p>某些网站针对这种方法进行了针对性的防御，比如在post表单中做手脚，或者post表单的数据不容易找清楚，这个时候我们无法构造正确的post表单就无法取得成功。那么这个时候就可以利用webdriver</p>
+<p>其原理是检查查看网页源码，通过查找需要点击的按钮、需要输入的对话框的class名字，或者id名字，利用 diver.find_element_by_id()、diver.find_element_by_class_name等函数进行定位，调用send_keys()函数进行输入，调用click()函数实现点击操作。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/7.png" alt=""></p>
+<p>以上就是实现post操作的方法，将正确的数据post到相应地址便可以向目标电话号码发送短信。
+这里为了测试我写了十个网站的方法，并将其封装成一个个函数，通过面向对象的方式编程，然后调用。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/8.png" alt="">
+在run函数中加入了异常处理，防止个别网站报错从而导致程序终止。在调用时循环10次。
+测试如图：
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/9.png" alt=""></p>
+<h4 id="结束">结束</h4>
+<p>到此，爬虫实现短信轰炸的思路已经明确了，因为只是验证想法测试是否可行，所以没数量比较少。有一句话叫做量变引起质变。
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/10.jfif" alt=""></p>
+<h4 id="拓展">拓展</h4>
+<pre><code>	 逛论坛偶然在先知社区看到一篇短信轰炸的帖子，那个思路还比这更好，其并没有用代码实现，而是实验了利用brupsuit抓包，并重复的向网站进行发包，相当于利用重放攻击进行轰炸，只需要找到几个没有做这方面防御的网站，写个循环不断的发包，便可以向目标电话发送大量短信形成拒绝服务攻击。由于还没了解应如何利用代码模拟burpsuit的重放功能，暂时不将这个内容放上来，先在这里记录下来，以后实现了再写一篇博客记录过程。
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Scrapy框架学习笔记(2)——pipeline和logging模块的使用]]></title>
         <id>https://sixi.fun/post/scrapy-kuang-jia-xue-xi-bi-ji-2</id>
