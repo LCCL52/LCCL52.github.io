@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>关于 | 一只小菜鸡</title>
+<title>目录扫描工具dirsearch的使用 | 一只小菜鸡</title>
 <link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1565065680660">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
@@ -119,24 +119,43 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_094246.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/5.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-01-25 ·</span> <span> / </span>
+          <span class="date">· 2019-08-06 ·</span> <span> / </span>
           <span class="author">
             <a href="https://sixi.fun" title="" rel="author"> Powered by <a>LCCL</a></a>
           </span>
           
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sixi.fun/tag/Awb26QpLB">渗透从入门到放弃</a>
+                </span>
+          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>关于</h1>
+          <h1 class='entry-title'>目录扫描工具dirsearch的使用</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <h1 id="随心随性">随心，随性</h1>
+              <h3 id="简介">简介</h3>
+<p>dirsearch是一个基于python的命令行工具，旨在暴力扫描页面结构，包括网页中的目录和文件。下载地址：https://github.com/maurosoria/dirsearch</p>
+<h3 id="使用">使用</h3>
+<p>-u 指定url</p>
+<p>-e 指定网站语言</p>
+<p>-w 可以加上自己的字典（带上路径）</p>
+<p>-r 递归跑（查到一个目录后，在目录后在重复跑，很慢，不建议用）</p>
+<p>--random-agents 使用代理（使用的代理目录在uesr-agents.txt中，可以自己添加）<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/1.png" alt=""><br>
+其中的db目录为字典数据库<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/2.png" alt=""><br>
+report目录为报告，存储扫描过的网站报告<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/3.png" alt=""></p>
+<p>通过返回状态码判断目录是否存在<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/4.png" alt=""></p>
 
             </article>
           </div>
@@ -188,6 +207,13 @@
             </div>
           </div>
         </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://sixi.fun/post/ji-yu-pa-chong-de-yan-zheng-ma-hong-zha-si-lu">下一篇->基于爬虫的短信轰炸思路</a>
+              </div>
+            </nav>
           
       </div>
       <section id="comments" class="comments">

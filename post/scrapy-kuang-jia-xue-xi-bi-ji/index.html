@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Scrapy框架学习笔记(1)——Scrapy的入门使用 | 一只小菜鸡</title>
-<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1562057633360">
+<link rel="shortcut icon" href="https://sixi.fun/favicon.ico?v=1565065680660">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://sixi.fun/styles/main.css" type='text/css' media='all'>
 
@@ -32,13 +32,13 @@
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://sixi.fun/tag/i__JBem5D">人生苦短，我用Python</a>
+                            <a href="https://sixi.fun/tag/Awb26QpLB">渗透从入门到放弃</a>
                         </li>
                             
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://sixi.fun/tag/Awb26QpLB">渗透从入门到放弃</a>
+                            <a href="https://sixi.fun/tag/i__JBem5D">人生苦短，我用Python</a>
                         </li>
                             
                         
@@ -145,20 +145,20 @@
 <pre><code> Scrapy是用纯Python实现一个为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。框架的力量，用户只需要定制开发几个模块就可以轻松的实现一个爬虫，用来抓取网页内容以及各种图片，非常之方便。Scrapy 使用了 Twisted(其主要对手是Tornado)异步网络框架来处理网络通讯，可以加快我们的下载速度，不用自己去实现异步框架，并且包含了各种中间件接口，可以灵活的完成各种需求
 </code></pre>
 <h3 id="框架实现流程图">框架实现流程图</h3>
-<p>实现流程：
+<p>实现流程：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/scrpy_liu.png" alt=""></p>
-<p>实现过程：
+<p>实现过程：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/xiangjie.png" alt=""></p>
 <h3 id="创建一个scrapy项目">创建一个scrapy项目</h3>
-<p>流程
+<p>流程<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/0.png" alt=""></p>
-<p>安装模块
+<p>安装模块<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/anzhuang.png" alt=""></p>
-<p>windows下的python也要进行命令行安装。
+<p>windows下的python也要进行命令行安装。<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/1.png" alt=""></p>
-<p>1、 创建一个项目：scrapy startproject scrapy_spider
+<p>1、 创建一个项目：scrapy startproject scrapy_spider<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/2.png" alt=""></p>
-<p>打开pycharm，可以看到创建成功
+<p>打开pycharm，可以看到创建成功<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/3.png" alt=""></p>
 <ul>
 <li>Item定义爬取的字段</li>
@@ -167,44 +167,44 @@
 <li>settings 爬虫的设置</li>
 <li>spiders文件夹 创建的爬虫</li>
 </ul>
-<p>2、生成一个爬虫
+<p>2、生成一个爬虫<br>
 scrapy genspider spider1 &quot;itcast.cn&quot;</p>
 <ul>
 <li>spider1 爬虫名字</li>
-<li>itcast.cn 爬虫范围（域名）
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt="">
-查看spider文件夹下有了一个名为spider1的爬虫
+<li>itcast.cn 爬虫范围（域名）<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt=""><br>
+查看spider文件夹下有了一个名为spider1的爬虫<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/5.png" alt=""></li>
 </ul>
-<p>spider1内容如下：
+<p>spider1内容如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/6.png" alt=""></p>
 <ul>
 <li>start_url内容为生成的，按需修改</li>
 <li>parse函数用于处理start_url的响应</li>
 </ul>
-<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息
-打开浏览器对其进行分析
+<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息<br>
+打开浏览器对其进行分析<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/7.png" alt=""></p>
-<p>书写xpath进行提取：
+<p>书写xpath进行提取：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/12.png" alt=""></p>
 <ul>
 <li>extract()函数提取文本</li>
 <li>yield item将数据传入piplines.py处理</li>
 </ul>
-<p>piplines接收数据，处理
+<p>piplines接收数据，处理<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/13.png" alt=""></p>
-<p>同时要在settings里面开启piplines才能使用
+<p>同时要在settings里面开启piplines才能使用<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/14.png" alt=""></p>
 <ul>
-<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。
+<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。<br>
 eg:再定义一个管道  距离为301，则数据先经过300处理，再经过301处理。</li>
 </ul>
-<p>设置日志等级
+<p>设置日志等级<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/9.png" alt=""></p>
-<p>运行报错，没有这个模块，安装相应模块
+<p>运行报错，没有这个模块，安装相应模块<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/11.png" alt=""></p>
-<p>处理完问题，再次运行，得到所要爬取的数据：
-启动爬虫 scrapy crawl spider1
+<p>处理完问题，再次运行，得到所要爬取的数据：<br>
+启动爬虫 scrapy crawl spider1<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/15.png" alt=""></p>
 
             </article>
@@ -216,11 +216,11 @@ eg:再定义一个管道  距离为301，则数据先经过300处理，再经过
                 
                   
                     
-                  <a href="https://sixi.fun/tag/i__JBem5D" title="View all posts in 人生苦短，我用Python">人生苦短，我用Python</a>
-                    
-                    
-                    
                   <a href="https://sixi.fun/tag/Awb26QpLB" title="View all posts in 渗透从入门到放弃">渗透从入门到放弃</a>
+                    
+                    
+                    
+                  <a href="https://sixi.fun/tag/i__JBem5D" title="View all posts in 人生苦短，我用Python">人生苦短，我用Python</a>
                     
                     
               </p>
@@ -232,7 +232,7 @@ eg:再定义一个管道  距离为301，则数据先经过300处理，再经过
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://sixi.fun/images/avatar.png?v=1562057633360" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://sixi.fun/images/avatar.png?v=1565065680660" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://sixi.fun'></a> </span>
             </div>
             <div class="bio">

