@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-08-06T04:28:06.428Z</updated>
+    <updated>2019-09-06T08:59:49.935Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://sixi.fun/images/avatar.png</logo>
     <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
+    <entry>
+        <title type="html"><![CDATA[skipfish]]></title>
+        <id>https://sixi.fun/post/skipfish</id>
+        <link href="https://sixi.fun/post/skipfish">
+        </link>
+        <updated>2019-09-06T07:47:56.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="简介">简介：</h3>
+<p>c语言编写的实验性的主动web安全评估工具，扫描web程序代码层面。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/1.png" alt=""></p>
+<h3 id="命令行参数">命令行参数</h3>
+<p><img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/2.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/3.png" alt=""></p>
+<h3 id="演示">演示</h3>
+<p>扫描本地搭建的环境网站<br>
+skipfish -o test http://172.16.157/DVWA<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/4.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/5.png" alt=""><br>
+按空格显示详细信息：<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/6.png" alt=""><br>
+只扫描包含dvwa的路径<br>
+skipfish -o test-I /dvwa/ http://172.16.157/DVWA</p>
+<h4 id="批量扫描">批量扫描：</h4>
+<p>将url存入一个TXT文档 url.txt<br>
+skipfish -o test @url.txt</p>
+<h4 id="指定字典扫描隐藏目录">指定字典扫描隐藏目录</h4>
+<p>自带字典文件<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/7.png" alt=""><br>
+skipfish -o test2 -I /dvwa/ -S /usr/share/skipfish/dictionaries/minimal.wl http://172.16.149.157/dvwa/<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/9.png" alt=""><br>
+加 -l *** 指定每秒最大请求数。</p>
+<h4 id="身份认证">身份认证</h4>
+<p>带上身份信息扫描，账户密码或者cookies。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/3.png" alt=""><br>
+提交表单：</p>
+<h4 id="手册">手册</h4>
+<p>man skipfish<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/skipfish/10.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[目录扫描工具dirsearch的使用]]></title>
         <id>https://sixi.fun/post/mu-lu-sao-miao-gong-ju-dirsearch-de-shi-yong</id>
