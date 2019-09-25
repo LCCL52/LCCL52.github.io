@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-09-06T09:06:50.295Z</updated>
+    <updated>2019-09-25T12:07:24.677Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://sixi.fun/images/avatar.png</logo>
     <icon>https://sixi.fun/favicon.ico</icon>
     <rights>All rights reserved 2019, 一只小菜鸡</rights>
+    <entry>
+        <title type="html"><![CDATA[VPS配置outline，实现科学上网]]></title>
+        <id>https://sixi.fun/post/vps-pei-zhi-outlineshi-xian-ke-xue-shang-wang</id>
+        <link href="https://sixi.fun/post/vps-pei-zhi-outlineshi-xian-ke-xue-shang-wang">
+        </link>
+        <updated>2019-09-25T11:06:19.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="背景简述">背景简述</h4>
+<p>基于国内的网络大环境，某些学术上的问题还是要在强大的谷歌搜索引擎的帮助下才能解决，所以实现科学上网是学到更多知识的第一步。自己动手，丰衣足食，嘿嘿嘿...</p>
+<h4 id="前期准备">前期准备</h4>
+<ul>
+<li>一台vps（linux）</li>
+<li>一台能连接vps的电脑（windows）</li>
+<li>MobaXterm (连接云主机的软件)</li>
+<li>一台测试用的安卓手机</li>
+</ul>
+<h4 id="vps购买">vps购买</h4>
+<p>一般选择大服务商，如搬瓦工之类。<br>
+https://bwg.net/<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/1.png" alt=""><br>
+购买好vps以后安装ubantu系统。<br>
+(注:由于没有，买国外vps，此处的云主机用阿里云主机代替。)</p>
+<h4 id="vps环境搭建">VPS环境搭建</h4>
+<p>1、本地电脑连接vps，可以使用xshell，也可以使用本次操作用的MobaXterm，远程连接云主机。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/2.png" alt=""><br>
+2、执行以下命令，安装outline服务</p>
+<pre><code>wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
+
+</code></pre>
+<p>效果如下：<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/3.png" alt=""><br>
+此处，我们需要将绿色那一行代码复制保存备用。<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/4.png" alt=""></p>
+<p>还要注意这里显示的两个端口，意思是我们要将这两个端口加入防火墙的白名单，也就是说将云服务器的64647端口的TCP和61188端口的TCP和UDP都打开，这两个端口随机生成，安装时注意查看<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/5.png" alt=""><br>
+进入云服务器的管理面板<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/6.png" alt=""><br>
+将上述两个端口添加进防火墙<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/7.png" alt=""><br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/8.png" alt=""><br>
+OK!  vps环境搭建完成。</p>
+<h4 id="本地管理搭建">本地管理搭建</h4>
+<p>下载Outline Manager<br>
+连接：https://github.com/Jigsaw-Code/outline-releases/blob/master/manager/Outline-Manager.exe</p>
+<p>下载安装，打开manger点击小加号<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/9.png" alt=""><br>
+如下：<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/10.png" alt=""><br>
+选择除第一个以外的任一个模块，将之前复制保存的代码粘贴进去<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/11.png" alt=""><br>
+然后出现如下界面，搭建成功！<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/12.png" alt=""><br>
+点击分享连接得到ssr代码<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/13.png" alt=""></p>
+<h4 id="客户端使用代理">客户端使用代理</h4>
+<p>电脑，手机，安装outline客户端，此处测试用手机。<br>
+客户端下载连接：<br>
+https://github.com/Jigsaw-Code/outline-releases/tree/master/client<br>
+手机安装点开，从将管理端分享的代码复制从粘贴板导入，点击连接<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/14.jpg" alt=""><br>
+测个速，，，，，，查看本机ip，显然这是云主机ip，搭建成功！<br>
+<img src="https://blog-1259440694.cos.ap-chengdu.myqcloud.com/Outline/15.jpg" alt=""></p>
+<h4 id="总结">总结</h4>
+<p>此次成功搭建了outline，云主机操作都是一样的，所以需要技术性的看看外面的世界时，可以搭建自己的vpn，妈妈再也不用担心我被qiang啦！之类的代理软件还有很多，outline是配置相对简单的一款，还有安全性比较高的v2ray，本来此次还搭建了v2ray的代理服务，但是由于v2ray服务多次出现异常，导致实验没成功。此处将搭建v2ray的教程记录，以备后续学习使用。<br>
+v2ray服务搭建：https://233v2.com/post/1/<br>
+v2-ui管理面板搭建：https://blog.sprov.xyz/2019/08/03/v2-ui/</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[skipfish]]></title>
         <id>https://sixi.fun/post/skipfish</id>
