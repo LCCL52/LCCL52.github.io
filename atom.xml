@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sixi.fun</id>
     <title>一只小菜鸡</title>
-    <updated>2019-09-25T12:07:24.677Z</updated>
+    <updated>2019-09-25T12:09:59.188Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sixi.fun"/>
     <link rel="self" href="https://sixi.fun/atom.xml"/>
@@ -17,7 +17,7 @@
         </link>
         <updated>2019-09-25T11:06:19.000Z</updated>
         <content type="html"><![CDATA[<h4 id="背景简述">背景简述</h4>
-<p>基于国内的网络大环境，某些学术上的问题还是要在强大的谷歌搜索引擎的帮助下才能解决，所以实现科学上网是学到更多知识的第一步。自己动手，丰衣足食，嘿嘿嘿...</p>
+<p>基于国内的网络大环境，某些学术上的问题还是要在强大的谷歌搜索引擎的帮助下才能解决，所以实现科学上网是学到更多知识的第一步。自己动手，丰衣足食，外面的世界很精彩，嘿嘿嘿...</p>
 <h4 id="前期准备">前期准备</h4>
 <ul>
 <li>一台vps（linux）</li>
