@@ -1,0 +1,67 @@
+import numpy as np
+from PIL import Image
+def arnold_encode(image, shuffle_times, a, b):
+    # 1:创建新图像
+    a_image=np.array(image)
+    arnold_image = np.zeros(shape=a_image.shape)
+    # 2：计算N
+    h, w = a_image.shape[0], a_image.shape[1]
+    N = h  # 或N=w
+    # 3：遍历像素坐标变换
+    for time in range(shuffle_times):
+        for ori_x in range(h):
+            for ori_y in range(w):
+                # 按照公式坐标变换
+                new_x = (1 * ori_x + b * ori_y) % N
+                new_y = (a * ori_x + (a * b + 1) * ori_y) % N
+
+                arnold_image[new_x, new_y, :] = a_image[ori_x, ori_y, :]
+
+    return arnold_image
+
+
+def arnold_decode(image, shuffle_times, a, b):
+    # 1:创建新图像
+    d_image = np.array(image)
+    decode_image = np.zeros(shape=d_image.shape)
+
+    # 2：计算N
+    h, w =  decode_image.shape[0],  decode_image.shape[1]
+    N = h  # 或N=w
+    # 3：遍历像素坐标变换
+    for time in range(shuffle_times):
+        for ori_x in range(h):
+            for ori_y in range(w):
+                # 按照公式坐标变换
+                new_x = ((a * b + 1) * ori_x + (-b) * ori_y) % N
+                new_y = ((-a) * ori_x + ori_y) % N
+                decode_image[new_x, new_y, :] = d_image[ori_x, ori_y, :]
+    return decode_image
+
+def padding(img):
+        longer_side = max(img.size)
+        horizontal_padding = (longer_side - img.size[0]) / 2
+        vertical_padding = (longer_side - img.size[1]) / 2
+        img = img.crop(
+            (
+                -horizontal_padding,
+                -vertical_padding,
+                img.size[0] + horizontal_padding,
+                img.size[1] + vertical_padding
+            )
+        )
+        return img
+
+if __name__ == '__main__':
+    img = Image.open("test2.jpg")
+    img.show()
+    width = img.size[0]  # 图片大小
+    height = img.size[1]
+    if width != height:
+        img=padding(img)
+    img2 = arnold_encode(img, 2, 3, 3)
+    encode_img2 = Image.fromarray(np.uint8(img2))
+    encode_img2.show()
+    img3=arnold_decode(encode_img2,2,3,3)
+    decode_img3=Image.fromarray(np.uint8(img3))
+    decode_img3.show()
